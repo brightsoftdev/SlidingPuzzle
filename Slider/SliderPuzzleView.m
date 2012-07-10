@@ -3,7 +3,6 @@
 //  Slider
 //
 //  Created by Chris Sinchok on 7/8/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "SliderPuzzleView.h"
@@ -18,13 +17,16 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _puzzleImage = [UIImage imageNamed:@"planet"];
+        // Sensible defaults
+        _puzzleImage = [UIImage imageNamed:@"globe"];
         _gridSize = 4;
         
+        // Making things look nice.
         self.clipsToBounds = YES;
         self.layer.borderWidth = 2;
         self.layer.borderColor = [[UIColor blackColor] CGColor];
         
+        // Adding a "solved" overlay.
         _solvedView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         [_solvedView setFont:[UIFont boldSystemFontOfSize:32.0]];
         [_solvedView setTextAlignment:UITextAlignmentCenter];
@@ -48,31 +50,34 @@
             CGImageRelease(imageRef);
         }
     
+        // Create a grid to keep track of the picece locations.
         _grid = [[PuzzleGrid alloc] init];
         
+        // This should maybe be a property, but it's not.
         CGFloat pieceViewSize = self.bounds.size.width / _gridSize;
-        
         
         for(int y=0; y < _gridSize; y++) {            
             for (int x=0; x < _gridSize; x++) {
                 
                 CGPoint currentLocation = CGPointMake(x, y);
                 
+                // If this spot is int he lower right, it's blank, so we toss an NSNull in the grid and move on.
                 if (y == (_gridSize - 1) && x == (_gridSize - 1)) {
                     [_grid setObject:[NSNull null] forPoint:currentLocation];
                     continue;
                 }
                 
+                // Create and position the piece
                 CGRect pieceFrame = CGRectMake(x * pieceViewSize,
                                                y * pieceViewSize,
                                                pieceViewSize,
                                                pieceViewSize);
-                
                 PuzzlePiece *piece = [[PuzzlePiece alloc] initWithImage:_puzzleImage 
                                                                location:currentLocation 
                                                                gridSize:_gridSize
                                                                   frame:pieceFrame];
                 
+                // Add the gesture recognizers.
                 UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self 
                                                                                              action:@selector(tapped:)];
                 [tapGesture setNumberOfTapsRequired:1];
@@ -84,6 +89,7 @@
                 [panGesture setMinimumNumberOfTouches:1];
                 [piece addGestureRecognizer:panGesture];
                 
+                // Add the piece to the board, and put it in the grid.
                 [self addSubview:piece];
                 [_grid setObject:piece forPoint:currentLocation];
             }
@@ -92,8 +98,12 @@
     return self;
 }
 
+/*
+ *  I wanted to do a nice animated shuffle, but it just didn't work out in time. This will have to do.
+ */
 - (void)shuffle
 {
+    // Every grid can be solved in 80 moves, so 100 will generally be a decent shuffle.
     for (int i = 0; i < 100; i++) {
         int offset = arc4random() % (_gridSize - 1);
         CGPoint randomPoint;
@@ -120,6 +130,11 @@
     return [_grid pointForObject:[NSNull null]];
 }
 
+/* 
+ *  Just a private method to keep things DRY. This method returns an "offset" 
+ *  of how a piece could be moved. If the piece can't be moved, we'll get 
+ *  CGPointZero.
+ */
 - (CGPoint)_getOffset:(PuzzlePiece *)piece
 {
     CGPoint currentLocation = [_grid pointForObject:piece];
@@ -153,6 +168,10 @@
     return offset;
 }
 
+/*
+ *  Given a piece to move, and the direction in which we're moving it, 
+ *  what are all the pieces we'll be moving?
+ */
 - (NSMutableArray *)_getPiecesToMove:(PuzzlePiece *)piece offset:(CGPoint)offset
 {
     NSMutableArray *piecesToMove = [NSMutableArray arrayWithObject:piece];
@@ -173,8 +192,12 @@
     return piecesToMove;
 }
 
+/*
+ *  This method moves a piece (if it can be moved), and if you ask nicely, it'll animate the move.
+ */
 - (void)movePiece:(PuzzlePiece *)piece animated:(BOOL)animated
 {
+    // We'll be using these a lot, so get them now.
     CGFloat pieceViewSize = self.bounds.size.width / _gridSize;    
     CGPoint currentLocation = [_grid pointForObject:piece];
     
@@ -187,6 +210,7 @@
     if (animated) {
         [UIView animateWithDuration:0.25 
                           animations:^{
+                              // For each peice, animate it into it's new position.
                               for (PuzzlePiece *tmpPiece in piecesToMove) {
                                   CGPoint pieceLocation = [_grid pointForObject:tmpPiece];
                                   CGPoint originalCenter = CGPointMake((pieceLocation.x * pieceViewSize) + (pieceViewSize * .5), 
@@ -197,6 +221,7 @@
                               }
                           }
                           completion:^(BOOL finished) {
+                              // Now we update the data in the grid.
                               for (PuzzlePiece *tmpPiece in [piecesToMove reverseObjectEnumerator]) {
                                   CGPoint pieceLocation = [_grid pointForObject:tmpPiece];
                                   pieceLocation.x += offset.x;
@@ -204,12 +229,15 @@
                                   [_grid setObject:tmpPiece forPoint:pieceLocation];
                               }
                               [_grid setObject:[NSNull null] forPoint:currentLocation];
+                              // If the gird is solved, throw up the solved modal. Should probably be a method I call, 
+                              // but hey, we all make mistakes.
                               if ([_grid isSolved]) {
                                   [_solvedView setHidden:NO];
                                   [self bringSubviewToFront:_solvedView];
                               }
                           }];
     } else {
+        // Same as above, just don't bother animating anything.
         for (PuzzlePiece *tmpPiece in [piecesToMove reverseObjectEnumerator]) {
             CGPoint pieceLocation = [_grid pointForObject:tmpPiece];
             pieceLocation.x += offset.x;
@@ -243,6 +271,7 @@
     CGFloat pieceViewSize = self.bounds.size.width / _gridSize;
     
     CGPoint touchOffset = CGPointZero;
+    // We only want to animate along the axis that we can move on.
     if (offset.x == 0) {
         if (offset.y == 1 && (translatedPoint.y > 0)) {
             touchOffset.y = translatedPoint.y;
@@ -263,6 +292,7 @@
         }
     }
     
+    // For each piece that could be moved by this pan, pan it over.
     for (PuzzlePiece *piece in piecesToMove) {
         CGPoint currentLocation = [_grid pointForObject:piece];
         CGPoint originalCenter = CGPointMake((currentLocation.x * pieceViewSize) + (pieceViewSize * .5), 
@@ -272,6 +302,8 @@
         [piece setCenter:originalCenter];
     }
     
+    // If the pan has ended, we need to animate back to the starting position or 
+    // forward to the completed move
     if (gesture.state == UIGestureRecognizerStateEnded) {
         if (fabs(touchOffset.x + touchOffset.y) > (pieceViewSize /2)) {
             [self movePiece:(PuzzlePiece *)gesture.view animated:YES];
@@ -306,7 +338,7 @@
     }
     
     _puzzleImage = image;
-    
+    // Update each piece.
     for (PuzzlePiece *piece in [_grid allObjects]) {
         if ([piece respondsToSelector:@selector(setImage:)]) {
             [piece setImage:_puzzleImage];

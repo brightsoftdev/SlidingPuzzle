@@ -3,7 +3,6 @@
 //  Slider
 //
 //  Created by Chris Sinchok on 7/5/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -18,6 +17,7 @@
 
 - (void)viewDidLoad
 {
+    //Pretty simple stuff here. Just fill up the screen (portrait only, because I'm a wuss).
     [super viewDidLoad];
     CGFloat viewWidth = UIScreen.mainScreen.bounds.size.width;
     _puzzle = [[SliderPuzzleView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, viewWidth)];

@@ -3,7 +3,6 @@
 //  Slider
 //
 //  Created by Chris Sinchok on 7/5/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "PuzzlePiece.h"
@@ -40,7 +39,10 @@
 
     return self;
 }
-
+/* 
+ *  A method that sets up the _imageView with the correct subset of the larger
+ *  puzzle image.
+ */
 - (void)setImage:(UIImage *)image{
     // Crop the image (we assume it's already square)
     CGFloat imageSize = image.size.width / _gridSize;
@@ -49,6 +51,7 @@
                                  imageSize,
                                  imageSize);
     
+    // We'll need to scale that image to fit this piece. 
     CGFloat scale = (imageSize / self.frame.size.width);    
     
     CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], cropRect);
@@ -62,7 +65,9 @@
 
 - (BOOL)isEqual:(id)object
 {
-    if ([object isKindOfClass:[PuzzlePiece class]]) {        
+    // Only objects of this type are equal to this one
+    if ([object isKindOfClass:[PuzzlePiece class]]) {
+        // If the goal location is the same, the piece is the same
         if (CGPointEqualToPoint([(PuzzlePiece *)object goalLocation], self.goalLocation)) {
             return YES;
         }
@@ -74,14 +79,5 @@
 {
     return [NSString stringWithFormat:@"[PuzzlePiece %g,%g]", self.goalLocation.x, self.goalLocation.y];
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B7D388715ABBB91004C27E4 /* planet.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B7D388615ABBB91004C27E4 /* planet.png */; };
 		1B7D388A15ABBE43004C27E4 /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B7D388915ABBE43004C27E4 /* globe.png */; };
 		1B7D388E15ABF81B004C27E4 /* ViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7D388D15ABF81B004C27E4 /* ViewController~ipad.xib */; };
 		1BA5C5C115A5F37200D9E195 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA5C5C015A5F37200D9E195 /* UIKit.framework */; };
@@ -25,7 +24,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1B7D388615ABBB91004C27E4 /* planet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet.png; sourceTree = "<group>"; };
 		1B7D388915ABBE43004C27E4 /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe.png; sourceTree = "<group>"; };
 		1B7D388D15ABF81B004C27E4 /* ViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ViewController~ipad.xib"; sourceTree = "<group>"; };
 		1BA5C5BC15A5F37200D9E195 /* Slider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slider.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				1B7D388915ABBE43004C27E4 /* globe.png */,
-				1B7D388615ABBB91004C27E4 /* planet.png */,
 				1BA5C5C815A5F37200D9E195 /* Slider-Info.plist */,
 				1BA5C5C915A5F37200D9E195 /* InfoPlist.strings */,
 				1BA5C5CC15A5F37200D9E195 /* main.m */,
@@ -178,7 +175,6 @@
 			files = (
 				1BA5C5CB15A5F37200D9E195 /* InfoPlist.strings in Resources */,
 				1BA5C5D715A5F37200D9E195 /* ViewController.xib in Resources */,
-				1B7D388715ABBB91004C27E4 /* planet.png in Resources */,
 				1B7D388A15ABBE43004C27E4 /* globe.png in Resources */,
 				1B7D388E15ABF81B004C27E4 /* ViewController~ipad.xib in Resources */,
 			);
