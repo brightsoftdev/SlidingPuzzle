@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "SliderPuzzleView.h"
+#import <AudioToolbox/AudioServices.h>
 
 @interface ViewController ()
 
@@ -17,18 +19,48 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
+    CGFloat viewWidth = UIScreen.mainScreen.bounds.size.width;
+    _puzzle = [[SliderPuzzleView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, viewWidth)];
+    [self.view addSubview:_puzzle];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return interfaceOrientation == UIInterfaceOrientationPortrait;
+}
+
+- (IBAction)shuffle:(id)sender
+{
+    [_puzzle shuffle];
+}
+
+- (IBAction)choosePhoto:(id)sender
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    [picker setDelegate:self];
+    [self presentModalViewController:picker animated:YES];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *newImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [picker dismissModalViewControllerAnimated:YES];
+    if (newImage) {
+        [_puzzle setPuzzleImage:newImage];
+    }
+}
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (motion == UIEventSubtypeMotionShake) {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+        [_puzzle shuffle];
+    }
+}
+
+- (BOOL)canBecomeFirstResponder
+{ 
+    return YES;
 }
 
 @end

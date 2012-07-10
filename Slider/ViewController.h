@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SliderPuzzleView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+    SliderPuzzleView *_puzzle;
+}
 
+- (IBAction)shuffle:(id)sender;
+- (IBAction)choosePhoto:(id)sender;
+ 
 @end

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B7D388715ABBB91004C27E4 /* planet.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B7D388615ABBB91004C27E4 /* planet.png */; };
+		1B7D388A15ABBE43004C27E4 /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B7D388915ABBE43004C27E4 /* globe.png */; };
+		1B7D388E15ABF81B004C27E4 /* ViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B7D388D15ABF81B004C27E4 /* ViewController~ipad.xib */; };
 		1BA5C5C115A5F37200D9E195 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA5C5C015A5F37200D9E195 /* UIKit.framework */; };
 		1BA5C5C315A5F37200D9E195 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA5C5C215A5F37200D9E195 /* Foundation.framework */; };
 		1BA5C5C515A5F37200D9E195 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA5C5C415A5F37200D9E195 /* CoreGraphics.framework */; };
@@ -15,22 +18,36 @@
 		1BA5C5D115A5F37200D9E195 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5C5D015A5F37200D9E195 /* AppDelegate.m */; };
 		1BA5C5D415A5F37200D9E195 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5C5D315A5F37200D9E195 /* ViewController.m */; };
 		1BA5C5D715A5F37200D9E195 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA5C5D515A5F37200D9E195 /* ViewController.xib */; };
+		1BA5C5EE15A630A200D9E195 /* PuzzlePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5C5ED15A630A200D9E195 /* PuzzlePiece.m */; };
+		1BD9CF9B15AA03E500D3C8A7 /* SliderPuzzleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD9CF9A15AA03E500D3C8A7 /* SliderPuzzleView.m */; };
+		1BD9CF9F15AA04E700D3C8A7 /* PuzzleGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD9CF9E15AA04E700D3C8A7 /* PuzzleGrid.m */; };
+		1BFA834215ABFCF900FB5EF7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BFA834115ABFCF900FB5EF7 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B7D388615ABBB91004C27E4 /* planet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet.png; sourceTree = "<group>"; };
+		1B7D388915ABBE43004C27E4 /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = globe.png; sourceTree = "<group>"; };
+		1B7D388D15ABF81B004C27E4 /* ViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ViewController~ipad.xib"; sourceTree = "<group>"; };
 		1BA5C5BC15A5F37200D9E195 /* Slider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BA5C5C015A5F37200D9E195 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1BA5C5C215A5F37200D9E195 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1BA5C5C415A5F37200D9E195 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		1BA5C5C815A5F37200D9E195 /* Slider-Info.plist */ = {isa = PBXFileReference; path = "Slider-Info.plist"; sourceTree = "<group>"; };
+		1BA5C5C815A5F37200D9E195 /* Slider-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Slider-Info.plist"; sourceTree = "<group>"; };
 		1BA5C5CA15A5F37200D9E195 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1BA5C5CC15A5F37200D9E195 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1BA5C5CE15A5F37200D9E195 /* Slider-Prefix.pch */ = {isa = PBXFileReference; path = "Slider-Prefix.pch"; sourceTree = "<group>"; };
-		1BA5C5CF15A5F37200D9E195 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		1BA5C5CE15A5F37200D9E195 /* Slider-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Slider-Prefix.pch"; sourceTree = "<group>"; };
+		1BA5C5CF15A5F37200D9E195 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1BA5C5D015A5F37200D9E195 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1BA5C5D215A5F37200D9E195 /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		1BA5C5D215A5F37200D9E195 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		1BA5C5D315A5F37200D9E195 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1BA5C5D615A5F37200D9E195 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		1BA5C5EC15A630A200D9E195 /* PuzzlePiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuzzlePiece.h; sourceTree = "<group>"; };
+		1BA5C5ED15A630A200D9E195 /* PuzzlePiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuzzlePiece.m; sourceTree = "<group>"; };
+		1BD9CF9915AA03E500D3C8A7 /* SliderPuzzleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderPuzzleView.h; sourceTree = "<group>"; };
+		1BD9CF9A15AA03E500D3C8A7 /* SliderPuzzleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SliderPuzzleView.m; sourceTree = "<group>"; };
+		1BD9CF9D15AA04E700D3C8A7 /* PuzzleGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuzzleGrid.h; sourceTree = "<group>"; };
+		1BD9CF9E15AA04E700D3C8A7 /* PuzzleGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuzzleGrid.m; sourceTree = "<group>"; };
+		1BFA834115ABFCF900FB5EF7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BFA834215ABFCF900FB5EF7 /* AudioToolbox.framework in Frameworks */,
 				1BA5C5C115A5F37200D9E195 /* UIKit.framework in Frameworks */,
 				1BA5C5C315A5F37200D9E195 /* Foundation.framework in Frameworks */,
 				1BA5C5C515A5F37200D9E195 /* CoreGraphics.framework in Frameworks */,
@@ -67,6 +85,7 @@
 		1BA5C5BF15A5F37200D9E195 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1BFA834115ABFCF900FB5EF7 /* AudioToolbox.framework */,
 				1BA5C5C015A5F37200D9E195 /* UIKit.framework */,
 				1BA5C5C215A5F37200D9E195 /* Foundation.framework */,
 				1BA5C5C415A5F37200D9E195 /* CoreGraphics.framework */,
@@ -82,7 +101,14 @@
 				1BA5C5D215A5F37200D9E195 /* ViewController.h */,
 				1BA5C5D315A5F37200D9E195 /* ViewController.m */,
 				1BA5C5D515A5F37200D9E195 /* ViewController.xib */,
+				1B7D388D15ABF81B004C27E4 /* ViewController~ipad.xib */,
 				1BA5C5C715A5F37200D9E195 /* Supporting Files */,
+				1BA5C5EC15A630A200D9E195 /* PuzzlePiece.h */,
+				1BA5C5ED15A630A200D9E195 /* PuzzlePiece.m */,
+				1BD9CF9915AA03E500D3C8A7 /* SliderPuzzleView.h */,
+				1BD9CF9A15AA03E500D3C8A7 /* SliderPuzzleView.m */,
+				1BD9CF9D15AA04E700D3C8A7 /* PuzzleGrid.h */,
+				1BD9CF9E15AA04E700D3C8A7 /* PuzzleGrid.m */,
 			);
 			path = Slider;
 			sourceTree = "<group>";
@@ -90,6 +116,8 @@
 		1BA5C5C715A5F37200D9E195 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1B7D388915ABBE43004C27E4 /* globe.png */,
+				1B7D388615ABBB91004C27E4 /* planet.png */,
 				1BA5C5C815A5F37200D9E195 /* Slider-Info.plist */,
 				1BA5C5C915A5F37200D9E195 /* InfoPlist.strings */,
 				1BA5C5CC15A5F37200D9E195 /* main.m */,
@@ -150,6 +178,9 @@
 			files = (
 				1BA5C5CB15A5F37200D9E195 /* InfoPlist.strings in Resources */,
 				1BA5C5D715A5F37200D9E195 /* ViewController.xib in Resources */,
+				1B7D388715ABBB91004C27E4 /* planet.png in Resources */,
+				1B7D388A15ABBE43004C27E4 /* globe.png in Resources */,
+				1B7D388E15ABF81B004C27E4 /* ViewController~ipad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +194,9 @@
 				1BA5C5CD15A5F37200D9E195 /* main.m in Sources */,
 				1BA5C5D115A5F37200D9E195 /* AppDelegate.m in Sources */,
 				1BA5C5D415A5F37200D9E195 /* ViewController.m in Sources */,
+				1BA5C5EE15A630A200D9E195 /* PuzzlePiece.m in Sources */,
+				1BD9CF9B15AA03E500D3C8A7 /* SliderPuzzleView.m in Sources */,
+				1BD9CF9F15AA04E700D3C8A7 /* PuzzleGrid.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +273,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Slider/Slider-Prefix.pch";
 				INFOPLIST_FILE = "Slider/Slider-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -250,7 +286,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Slider/Slider-Prefix.pch";
 				INFOPLIST_FILE = "Slider/Slider-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -274,6 +312,7 @@
 				1BA5C5DC15A5F37200D9E195 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
